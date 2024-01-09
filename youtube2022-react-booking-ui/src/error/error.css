@@ -1,0 +1,19 @@
+.containerErr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.WrapperErr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: gray;
+}
+
+.emojiErr{
+    font-size: 90px;
+}
