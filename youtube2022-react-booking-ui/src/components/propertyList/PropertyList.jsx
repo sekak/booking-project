@@ -25,7 +25,7 @@ const PropertyList = () => {
       {!error ? (delay && !loading) ? <>
         {images.map((img,i) => {
           return(
-          <div className="pListItem">
+          <div className="pListItem" key={i}>
             <img
               src={img}
               alt=""

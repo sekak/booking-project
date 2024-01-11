@@ -99,6 +99,7 @@
 }
 
 .siCheckButton{
+  text-align: center;
   background-color: #0071c2;
   color: white;
   font-weight: bold;

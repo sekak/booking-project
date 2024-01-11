@@ -75,6 +75,7 @@
 .headerSearchInput {
   border: none;
   outline: none;
+  color: gray;
 }
 
 .headerSearchText {

@@ -137,10 +137,42 @@ const Sketeton = ({ type }) => {
         )
     }
 
+    const SearchItemSk = () => {
+        return (
+            <div className='containerSearchSk'>
+                <div className='wrapperSearchSk'>
+                    <div className='leftSearchSk'>
+                        <div className='imgLeftSk'></div>
+                    </div> 
+                    <div className='middleSearchSk'>
+                        <h1 className='titleMiddlSk'></h1>
+                        <h3 className='titleMiddlSpanSk'></h3>
+                         <h1 className='titleMiddlSk'></h1>
+                       <bold className='boldTitleSk'></bold>
+                         <p className='descMidSk'></p>
+                        <p className='descMidGreenSk'></p>
+                        <p className='descMidGreenBoldSk'></p>
+                    </div>
+                    <div className='rightSearchSk'>
+                        <div className='topSk'>
+                            <div className='rateTopSk'></div>
+                            <div className='ratingSk'></div>
+                        </div>
+                        <div className='bottomSk'>
+                            <div className='priceBottomSk'></div>
+                            <div className='descBottomSk'></div>
+                            <div className='bottoBottomSk'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+    
     if (type == "featured") return <FeaturedSk />
     if (type == "property") return <Property />
-    if (type == "property") return <Property />
     if (type == "featuredPr") return <FeaturedPr />
+    if (type == "searchItem") return  Array(4).fill(<SearchItemSk />);
 
 }
 
