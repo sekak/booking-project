@@ -148,7 +148,7 @@ const Sketeton = ({ type }) => {
                         <h1 className='titleMiddlSk'></h1>
                         <h3 className='titleMiddlSpanSk'></h3>
                          <h1 className='titleMiddlSk'></h1>
-                       <bold className='boldTitleSk'></bold>
+                       <h1 className='boldTitleSk'></h1>
                          <p className='descMidSk'></p>
                         <p className='descMidGreenSk'></p>
                         <p className='descMidGreenBoldSk'></p>
@@ -172,7 +172,7 @@ const Sketeton = ({ type }) => {
     if (type == "featured") return <FeaturedSk />
     if (type == "property") return <Property />
     if (type == "featuredPr") return <FeaturedPr />
-    if (type == "searchItem") return  Array(4).fill(<SearchItemSk />);
+    if (type == "searchItem") return  Array(6).fill().map((item,i )=><SearchItemSk  key={i}/>);
 
 }
 

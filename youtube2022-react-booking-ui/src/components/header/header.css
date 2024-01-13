@@ -83,6 +83,13 @@
   cursor: pointer;
 }
 
+.alertDestination::placeholder{
+  color: rgb(255, 0, 0);
+  
+}
+ 
+
+
 .date {
   position: absolute;
   top: 50px;

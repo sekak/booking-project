@@ -19,16 +19,24 @@ const List = () => {
   const [min, setMin] = useState(undefined)
   const [max, setMax] = useState(undefined)
   const [delay, setDelay] = useState(false)
+  const [empty, setEmpty] = useState(false)
 
 
-  const { data, loading, error, reFetch } = FetchData(`/hotel/find?city=${destination.slice(0, 1).toUpperCase() + destination.slice(1)}&min=${min || 0}&max=${max || 999}`)
-  const handleClick = () => {
+  const { data, loading, error, reFetch } = FetchData(`/hotel/find?city=${destination.slice(0, 1).toUpperCase() + destination.toLowerCase().slice(1)}&min=${min || 0}&max=${max || 999}`)
+  const handleClick = () => { 
     reFetch()
+    if(data.length > 0)
+      setEmpty(false)
+    else 
+      setEmpty(true)
   }
 
+  // console.log(destination.toLowerCase().slice(0, 1).toUpperCase())
   useEffect(() => {
     setTimeout(() => { setDelay(true) }, 2000)
   }, [])
+
+  // console.log(empty, data.length)
 
   return (
     <div>
@@ -103,10 +111,13 @@ const List = () => {
             <button onClick={handleClick}>Search</button>
           </div>
           <div className="listResult">
-            {!error ? (!loading && delay) ? data.map((item,i ) => (
-              <SearchItem item={item}  key={i}/>
-            )) : <Sketeton type="searchItem" />
+            {!error ? (!loading && delay) ? (data.length != 0 ? data.map((item) => (
+              <SearchItem item={item}  key={item._id}/>
+            )) 
+             : <Error type="data" message="not found this destination!"/>
+            ): <Sketeton type="searchItem" />
               : <Error type="data"  message="can't fetch data" />}
+               
           </div>
         </div>
       </div>

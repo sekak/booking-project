@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
+  const [alert , setAlert] = useState(false);
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -44,7 +45,10 @@ const Header = ({ type }) => {
   };
 
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
+    destination.length > 0 ?
+      navigate("/hotels", { state: { destination, date, options } })
+      :
+      setAlert(true)
   };
 
   return (
@@ -92,9 +96,11 @@ const Header = ({ type }) => {
                 <input
                   type="text"
                   placeholder="Where are you going?"
-                  className="headerSearchInput"
+                  className={`headerSearchInput  ${alert &&  "alertDestination"}`}
                   onChange={(e) => setDestination(e.target.value)}
                 />
+                {/* {alert && <p className="alertDestination">where are you going?</p>} */}
+
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
@@ -191,9 +197,7 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <button className="headerBtn" onClick={handleSearch}>
-                  Search
-                </button>
+                <input type="submit" className="headerBtn" onClick={handleSearch} value="Search"/>
               </div>
             </div>
           </>
