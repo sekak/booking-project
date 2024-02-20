@@ -21,7 +21,7 @@ const List = () => {
   const [delay, setDelay] = useState(false)
   const [empty, setEmpty] = useState(false)
 
-
+  console.log(destination.slice(0, 1).toUpperCase() + destination.toLowerCase().slice(1))
   const { data, loading, error, reFetch } = FetchData(`/hotel/find?city=${destination.slice(0, 1).toUpperCase() + destination.toLowerCase().slice(1)}&min=${min || 0}&max=${max || 999}`)
   const handleClick = () => { 
     reFetch()
@@ -117,7 +117,6 @@ const List = () => {
              : <Error type="data" message="not found this destination!"/>
             ): <Sketeton type="searchItem" />
               : <Error type="data"  message="can't fetch data" />}
-               
           </div>
         </div>
       </div>

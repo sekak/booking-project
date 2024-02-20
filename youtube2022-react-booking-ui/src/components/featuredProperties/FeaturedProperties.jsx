@@ -9,12 +9,11 @@ const FeaturedProperties = () => {
   useEffect(() => {
     setTimeout(() => { setDelay(true) }, 2000)
   }, [])
-  const { loading, data, error } = FetchData("/hotel/find?featured=true")
+  const { loading, data, error } = FetchData("/hotel/find?featured=true&limit=4")
   console.log(data)
   return (
     <div className="fp">
       {!error ? (!loading && delay) ?
-         
           (data.map((items,i) => {
             return (
               <div className="fpItem" key={i}>

@@ -40,9 +40,9 @@ export const getHotel = async (req,res) => {
 
 
 export const getHotels = async (req,res) => {
-    const {min, max, ...featured} = req.query
+    const {min, max, limit ,...featured} = req.query   
     try {
-        const hotels = await Hotel.find({cheapestPrice: {$gt: min || 1, $lt: max || 999}, ...featured}).limit(req.query.limit)
+        const hotels = await Hotel.find({cheapestPrice: {$gt: min || 1, $lt: max || 999}, ...featured}).limit(limit)
         res.status(200).json(hotels)
     } catch (err) {
         res.status(500).json(err)
@@ -66,17 +66,17 @@ export const getCountCity = async (req,res) => {
 
 export const getCountType = async (req,res) => {
     try {
-        const countTypeHotels = await Hotel.countDocuments({type:"hotels"})
-        const countTypeApartments = await Hotel.countDocuments({type:"apartments"})
-        const countTypeCabins = await Hotel.countDocuments({type:"cabins"})
-        const countTypeVillas = await Hotel.countDocuments({type:"villas"})
-        const countTypeResorts = await Hotel.countDocuments({type:"resorts"})
+        const countTypeHotels = await Hotel.countDocuments({type:"Hotel"})
+        const countTypeApartments = await Hotel.countDocuments({type:"Apartment"})
+        const countTypeCabins = await Hotel.countDocuments({type:"Cabin"})
+        const countTypeVillas = await Hotel.countDocuments({type:"Villa"})
+        const countTypeResorts = await Hotel.countDocuments({type:"Resorts"})
         res.status(200).json([
-            {type: "hotels", count: countTypeHotels},
-            {type: "cabins", count: countTypeCabins},
-            {type: "villas", count: countTypeVillas},
-            {type: "resorts", count: countTypeResorts},
-            {type: "apartments", count: countTypeApartments},
+            {type: "Hotel", count: countTypeHotels},
+            {type: "Cabin", count: countTypeCabins},
+            {type: "Villa", count: countTypeVillas},
+            {type: "Resorts", count: countTypeResorts},
+            {type: "Apartment", count: countTypeApartments},
         ])
      } catch (err) {
         res.status(500).json(err)

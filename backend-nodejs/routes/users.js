@@ -5,8 +5,6 @@ import { verifyTokenUser , verifyAdmine} from "../utils/verfiyToken.js"
 const router = express.Router()
 
 
- 
-
 router.put("/:id", verifyTokenUser ,updateUser)
 
 router.delete("/:id",verifyTokenUser, deleteUser)

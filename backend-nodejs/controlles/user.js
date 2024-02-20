@@ -1,20 +1,4 @@
 import User from "../models/User.js";
-import {verifyToken} from "../utils/verfiyToken.js";
-
-// export const verifyTokenRoute = (req,res,next) => {
-//     res.json("you are authenticated");
-// };
-
-// export const verifyUserRoute = (req,res,next) => {
-//     res.json("you can to delete you account");
-// };
-
-// export const verifyAdminRoute = (req,res,next) => {
-//     res.json("you can do anything: admin");
-// };
-
-
-
 
 export const updateUser = async (req,res) => {
     try {

@@ -9,11 +9,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from "../../Context/searchContext";
 
 const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
@@ -44,12 +45,18 @@ const Header = ({ type }) => {
     });
   };
 
+  const consumer = useContext(SearchContext);
   const handleSearch = () => {
-    destination.length > 0 ?
-      navigate("/hotels", { state: { destination, date, options } })
-      :
+    if(destination.length === 0)
+    {
       setAlert(true)
-  };
+    }else
+    {
+      navigate("/hotels", { state: { destination, date, options } })
+      consumer.dispatch({type: "NEW_SEARCH", payload:{city: destination, dates: date, options: options}})
+    }
+  }; 
+  console.log(typeof(consumer.dispatch))
 
   return (
     <div className="header">
@@ -99,8 +106,6 @@ const Header = ({ type }) => {
                   className={`headerSearchInput  ${alert &&  "alertDestination"}`}
                   onChange={(e) => setDestination(e.target.value)}
                 />
-                {/* {alert && <p className="alertDestination">where are you going?</p>} */}
-
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
