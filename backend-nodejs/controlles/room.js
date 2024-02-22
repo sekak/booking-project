@@ -53,3 +53,22 @@ export const getRooms = async (req, res) => {
         res.status(500).json("internal server error")
     }
 }
+
+
+export const updateRooms = async (req,res)=>{
+    try{
+        const room = await Room.findByIdAndUpdate(req.params.id,{ $set:  req.body}, { $new: true })
+        res.status(200).json(room)
+    } catch (err) {
+        res.status(500).json("internal server error")
+    }
+}
+
+export const availabiltyRooms = async (req,res)=>{
+    try{
+        const room = await Room.findByIdAndUpdate(req.params.id,{ $push: { 'roomNumbers.unavailableDates': req.body.unavailableDates }}, { new: true })
+        res.status(200).json(room)
+    } catch (err) {
+        res.status(500).json("internal server error")
+    }
+}

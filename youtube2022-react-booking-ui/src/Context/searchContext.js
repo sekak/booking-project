@@ -2,7 +2,7 @@ import { createContext, useEffect, useReducer } from "react"
 
 const INIT_CONTEXT = {
     city: undefined,
-    dates: [],
+    dates: JSON.parse(localStorage.getItem("dates")) ||  [],
     options: {
         adult: undefined,
         children: undefined,
@@ -26,6 +26,7 @@ const SearchReducer = (state, action)=>{
 
 export const SearchContextProvider = ({children}) =>{
     const [state, dispatch] = useReducer(SearchReducer, INIT_CONTEXT)
+    localStorage.setItem("dates", JSON.stringify(state.dates))
     return (
         <SearchContext.Provider value={{city: state.city, dates: state.dates, options: state.options, dispatch}}>
             {children}

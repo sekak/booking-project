@@ -1,0 +1,114 @@
+.reserve{
+    background-color: rgba(80, 80, 80, 0.296);
+    position:fixed;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reserveWrapper{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 25%;
+    position: relative;
+}
+
+.close{
+    top: 4px;
+    right: 1px;
+    color: black;
+    position: absolute;
+    font-size: 24px;
+}
+
+.disable{
+    cursor:not-allowed;
+}
+
+.resTitle{
+    color: rgb(9, 120, 255);
+    margin-bottom: 10px;
+}
+
+.rItem{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+
+.rItemInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.rTitle{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rDesc
+{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.rMax{
+    font-size: 12px;
+}
+
+.rRrooms{
+    display: flex;
+    justify-content: end;
+}
+
+.rRoom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rRoom label{
+    color: gray;
+    font-size: 10px;
+}
+
+.rPrice{
+    font-weight: 500;
+}
+
+.reserveButton{
+    width: 100%;
+    display: flex;
+    border: none;
+    padding: 10px 20px;
+    background-color: #0071c2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+
+.blockReserveButton{
+    background-color: gray;
+    cursor:not-allowed;
+}
+
+
+.rNrooms{
+    font-size: 20px;
+    text-align: center;
+}
+
+.rNroomsButton{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

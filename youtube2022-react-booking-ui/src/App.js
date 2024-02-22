@@ -11,6 +11,8 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import { useContext } from "react";
 import { AuthContext } from "./Context/authContext";
+import Reserve from "./components/reserve/Reserve";
+import HomeLoves from "./components/homeloves/HomeLoves";
 
 function App() {
   const {state} = useContext(AuthContext)
@@ -23,6 +25,8 @@ function App() {
           <Route path="/hotels" element={<List/>}/>
           <Route path="/hotels/:id" element={<Hotel/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/reserve" element={<Reserve/>}/>
+          <Route path="/homeloves" element={<HomeLoves/>}/>
       </Routes>
     </BrowserRouter>
   );

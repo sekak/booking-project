@@ -23,7 +23,8 @@ const Login = () => {
       );
       console.log("fuck there are error");
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      navigate("/");
+      const path = localStorage.getItem("path")
+      navigate(path || "/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }

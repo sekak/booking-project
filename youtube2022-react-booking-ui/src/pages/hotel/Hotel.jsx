@@ -12,8 +12,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
 import FetchData from "../../fetching/FetchData";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../Context/searchContext";
+import { AuthContext } from "../../Context/authContext";
+import Reserve from "../../components/reserve/Reserve";
 
 const Hotel = () => {
   const location = useLocation();
@@ -22,19 +24,26 @@ const Hotel = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const consumer = useContext(SearchContext);
+  const { state } = useContext(AuthContext);
+  const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate()
 
   const diffDates = (date1, date2) => {
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   };
-  const days = diffDates(consumer.dates[0]?.startDate, consumer.dates[0]?.endDate);
-  if(days){
-    localStorage.setItem("days",days);
-    localStorage.setItem("rooms",consumer.options.room);
+  const days = diffDates(
+    consumer.dates[0]?.startDate,
+    consumer.dates[0]?.endDate
+  );
+  if (days) {
+    localStorage.setItem("days", days);
+    localStorage.setItem("rooms", consumer.options.room);
   }
-  const getDays = localStorage.getItem("days")
-  const rooms = localStorage.getItem("rooms")
+
+  const getDays = localStorage.getItem("days");
+  const rooms = localStorage.getItem("rooms");
   const photos = [
     {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -63,18 +72,23 @@ const Hotel = () => {
 
   const handleMove = (direction) => {
     let newSlideNumber;
-
     if (direction === "l") {
       newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1;
     } else {
       newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
     }
-
     setSlideNumber(newSlideNumber);
   };
 
+  const handleClick = () => {
+    state.user ? 
+    setOpenModal(true)  :
+    navigate("/login")
+  };
+
+  localStorage.setItem("path", window.location.pathname);
   return (
-    <div>
+    <div >
       <Navbar />
       <Header type="list" />
       <div className="hotelContainer">
@@ -137,15 +151,21 @@ const Hotel = () => {
                 excellent location score of 9.8!
               </span>
               <h2>
-                <b>${getDays * rooms * data.cheapestPrice}</b> ({getDays } nights)
+                <b>${getDays * rooms * data.cheapestPrice}</b> ({getDays}{" "}
+                nights)
               </h2>
-              <button>Reserve or Book Now!</button>
+              <button className="bookButton" onClick={handleClick}>
+                Reserve or Book Now!
+              </button>
             </div>
           </div>
         </div>
         <MailList />
         <Footer />
       </div>
+      {openModal && (
+        <Reserve setOpenModal={setOpenModal} id={id} />
+      )}
     </div>
   );
 };

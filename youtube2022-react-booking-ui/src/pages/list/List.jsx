@@ -21,7 +21,6 @@ const List = () => {
   const [delay, setDelay] = useState(false)
   const [empty, setEmpty] = useState(false)
 
-  console.log(destination.slice(0, 1).toUpperCase() + destination.toLowerCase().slice(1))
   const { data, loading, error, reFetch } = FetchData(`/hotel/find?city=${destination.slice(0, 1).toUpperCase() + destination.toLowerCase().slice(1)}&min=${min || 0}&max=${max || 999}`)
   const handleClick = () => { 
     reFetch()
@@ -31,12 +30,10 @@ const List = () => {
       setEmpty(true)
   }
 
-  // console.log(destination.toLowerCase().slice(0, 1).toUpperCase())
   useEffect(() => {
     setTimeout(() => { setDelay(true) }, 2000)
   }, [])
 
-  // console.log(empty, data.length)
 
   return (
     <div>
@@ -111,7 +108,7 @@ const List = () => {
             <button onClick={handleClick}>Search</button>
           </div>
           <div className="listResult">
-            {!error ? (!loading && delay) ? (data.length != 0 ? data.map((item) => (
+            {!error ? (!loading && delay) ? (data.length !== 0 ? data.map((item) => (
               <SearchItem item={item}  key={item._id}/>
             )) 
              : <Error type="data" message="not found this destination!"/>

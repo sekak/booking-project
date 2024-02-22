@@ -1,0 +1,46 @@
+/* CSS for HomeLoves component */
+
+.homelv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* margin: 10px; */
+}
+  
+.homelvWrapper{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.homelvWrapper>h1{
+    /* width: 100%; */
+    display: flex;
+    /* text-align: start; */
+    font-size: 18px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    color: gray;
+}
+
+.carts{
+    display:grid;
+    place-items: center;
+    grid-template-columns:repeat(3,1fr);
+    row-gap: 20px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+  
+.homeCart img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
