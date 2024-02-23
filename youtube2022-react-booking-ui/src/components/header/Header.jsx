@@ -20,13 +20,13 @@ const Header = ({ type }) => {
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [alert , setAlert] = useState(false);
-  const [date, setDate] = useState([
-    {
+  const [date, setDate] = useState(
+    [{
       startDate: new Date(),
       endDate: new Date(),
       key: "selection",
-    },
-  ]);
+    }]
+    ,);
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,

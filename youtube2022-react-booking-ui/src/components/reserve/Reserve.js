@@ -61,7 +61,7 @@ const Reserve = ({ setOpenModal, id }) => {
 
   return (
     <div className="reserve">
-      <div className="reserveWrapper">
+     {!error ? (!loading)? <div className="reserveWrapper">
         <IoIosCloseCircle
           className="close"
           onClick={() => setOpenModal(false)}
@@ -96,19 +96,22 @@ const Reserve = ({ setOpenModal, id }) => {
         {data.length <= 0 ?
           (
             <>
-               <h1 className="rNrooms">Sorry, there are no rooms available at moment!</h1>
-               <Link  to="/HomeLoves"><button className="rNroomsButton">Homes you might like</button></Link>
+            <h1 className="rNrooms">Sorry, there are no rooms available at moment!</h1>
+            <Link  to="/HomeLoves"><button className="rNroomsButton">Homes you might like</button></Link>
             </>
           ) :
           (        
             <button className={`reserveButton ${!blocked && `blockReserveButton`}`}
             onClick={handleClickReserve}>
-            Reserve Now
+                Reserve Now
             </button>
           )
         }
 
       </div>
+        : <h1 className="loadingReserv">Loading...</h1>
+        : "Oops error"
+    }
     </div>
   );
 };

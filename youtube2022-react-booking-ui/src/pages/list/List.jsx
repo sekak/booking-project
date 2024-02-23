@@ -11,15 +11,19 @@ import Sketeton from "../../skeleton/Sketeton";
 import Error from "../../error/Error";
 
 const List = () => {
+
+  
   const location = useLocation();
+  localStorage.setItem("path",location.pathname)
+
+  const [max, setMax] = useState(undefined)
+  const [min, setMin] = useState(undefined)
+  const [empty, setEmpty] = useState(false)
   const [destination, setDestination] = useState(location.state.destination);
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.options);
-  const [min, setMin] = useState(undefined)
-  const [max, setMax] = useState(undefined)
   const [delay, setDelay] = useState(false)
-  const [empty, setEmpty] = useState(false)
 
   const { data, loading, error, reFetch } = FetchData(`/hotel/find?city=${destination.slice(0, 1).toUpperCase() + destination.toLowerCase().slice(1)}&min=${min || 0}&max=${max || 999}`)
   const handleClick = () => { 
@@ -31,9 +35,8 @@ const List = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => { setDelay(true) }, 2000)
+    setTimeout(() => { setDelay(true) }, 1000)
   }, [])
-
 
   return (
     <div>
@@ -49,10 +52,9 @@ const List = () => {
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
-              <span onClick={() => setOpenDate(!openDate)}>{`${format(
-                date[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+              <span onClick={() => setOpenDate(!openDate)}>
+                {`${format(date[0].startDate,"MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
+              </span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}

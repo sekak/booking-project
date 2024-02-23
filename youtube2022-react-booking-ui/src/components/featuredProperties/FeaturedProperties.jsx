@@ -7,7 +7,7 @@ import Error from "../../error/Error";
 const FeaturedProperties = () => {
   const [delay, setDelay] = useState(false)
   useEffect(() => {
-    setTimeout(() => { setDelay(true) }, 2000)
+    setTimeout(() => { setDelay(true) }, 1000)
   }, [])
   const { loading, data, error } = FetchData("/hotel/find?featured=true&limit=4")
   console.log(data)

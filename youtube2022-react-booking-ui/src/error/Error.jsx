@@ -14,8 +14,7 @@ const Error = ({ type , message}) => {
             </div>
         )
     }
-
-    if(type == "data") return  <FetchData/>
+    return FetchData();
 }
 
 export default Error

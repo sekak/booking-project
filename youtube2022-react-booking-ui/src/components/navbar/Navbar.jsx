@@ -15,7 +15,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/">
-        <span className="logo">Booking</span>
+          <span className="logo">Booking</span>
         </Link>
         <div className="navItems">
           {state.user ? (
@@ -30,11 +30,15 @@ const Navbar = () => {
                 alt=""
               />
               <span className="navUsername">{state.user.username}</span>
-              <button onClick={handleClick} className="navButton">Logout</button>
+              <button onClick={handleClick} className="navButton">
+                Logout
+              </button>
             </div>
           ) : (
             <>
-              <button className="navButton">Register</button>
+              <Link to="/register">
+                <button className="navButton">Register</button>
+              </Link>
               <Link to="/login">
                 <button className="navButton">Login</button>
               </Link>

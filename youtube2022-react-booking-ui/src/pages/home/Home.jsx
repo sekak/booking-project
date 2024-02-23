@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import Featured from "../../components/featured/Featured";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 import Footer from "../../components/footer/Footer";
@@ -7,7 +8,10 @@ import Navbar from "../../components/navbar/Navbar";
 import PropertyList from "../../components/propertyList/PropertyList";
 import "./home.css";
 
+
 const Home = () => {
+  const location = useLocation()
+  localStorage.setItem("path",location.pathname)
   return (
     <div>
       <Navbar />

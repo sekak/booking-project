@@ -1,7 +1,26 @@
 import { Link } from "react-router-dom";
 import "./searchItem.css";
+import { useEffect, useState } from "react";
  
 const SearchItem = ({item}) => {
+  const [statusRating, setStatusRating] = useState("");
+
+  useEffect(() => {
+    const CheckStatusRating = () => {
+      if (item.rating < 10 && item.rating > 8)
+        setStatusRating("Fabulous");
+      else if (item.rating > 6.5)
+        setStatusRating("Very good");
+      else if (item.rating > 5)
+        setStatusRating("Good");
+      else if (item.rating > 3.5)
+        setStatusRating("Excellent");
+      else if (item.rating > 1)
+        setStatusRating("Review score");
+    }
+
+    CheckStatusRating();
+  }, []); // Empty dependency array means this effect runs only once after the initial render
 
    return (
     <div className="searchItem">
@@ -27,7 +46,7 @@ const SearchItem = ({item}) => {
       </div>
       <div className="siDetails">
        {item.rating && <div className="siRating">
-          <span>Excellent</span>
+          <span>{statusRating}</span>
           <button>{item.rating}</button>
         </div>}
         <div className="siDetailTexts">
