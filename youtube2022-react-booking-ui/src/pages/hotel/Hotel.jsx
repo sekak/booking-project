@@ -74,8 +74,8 @@ const Hotel = () => {
     <div>
       <Navbar />
       <Header type="list" />
-      {!error ? 
-        !loading ? 
+      {!error ? (
+        !loading ? (
           <div className="hotelContainer">
             {open && (
               <div className="slider">
@@ -104,27 +104,27 @@ const Hotel = () => {
               </div>
             )}
             <div className="hotelWrapper">
-              <button className="bookNow" onClick={handleClick}>Reserve or Book Now!</button>
+              <button className="bookNow" onClick={handleClick}>
+                Reserve or Book Now!
+              </button>
               <h1 className="hotelTitle">{data.title}</h1>
               <div className="hotelAddress">
                 <FontAwesomeIcon icon={faLocationDot} />
                 <span>{data.address}</span>
               </div>
               <span className="hotelDistance">
-              Excellent location – {data.distance}m from center
+                Excellent location – {data.distance}m from center
               </span>
               <span className="hotelPriceHighlight">
-              Book a stay over $124 at this property and get a free airport
-              taxi
+                Book a stay over $124 at this property and get a free airport
+                taxi
               </span>
-              {
-                !photos && (
-                  <div className="NoPhoto">
-                    <h1 className="noPhotos">Oops... No photos </h1>
-                    <TbPhotoSquareRounded style={{fontSize:"40px"}}/>
-                  </div>
-                )
-              }
+              {!photos && (
+                <div className="NoPhoto">
+                  <h1 className="noPhotos">Oops... No photos </h1>
+                  <TbPhotoSquareRounded style={{ fontSize: "40px" }} />
+                </div>
+              )}
               <div className="hotelImages">
                 {data.photos?.map((photo, i) => (
                   <div className="hotelImgWrapper" key={i}>
@@ -133,7 +133,7 @@ const Hotel = () => {
                       src={photo}
                       alt=""
                       className="hotelImg"
-                      onLoad={()=>setPhotos(true)}
+                      onLoad={() => setPhotos(true)}
                     />
                   </div>
                 ))}
@@ -162,15 +162,16 @@ const Hotel = () => {
             <MailList />
             <Footer />
           </div>
-      
-        : <div className="loadingHome hotelLoadin">
-        <span className="cercelHome first"></span>
-        <span className="cercelHome second"></span>
-        <span className="cercelHome third"></span>
-        </div>
-      : 
-      <Error type="" message="Not found 404!"/>
-      }
+        ) : (
+          <div className="loadingHome hotelLoadin">
+            <span className="cercelHome first"></span>
+            <span className="cercelHome second"></span>
+            <span className="cercelHome third"></span>
+          </div>
+        )
+      ) : (
+        <Error type="" message="Not found 404!" />
+      )}
       {openModal && <Reserve setOpenModal={setOpenModal} id={id} />}
     </div>
   );

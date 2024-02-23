@@ -12,9 +12,10 @@
 
 .reserveWrapper{
     background-color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 30px 20px;
     width: 25%;
     position: relative;
+    border-radius: 5px;
 }
 
 .close{
@@ -31,8 +32,11 @@
 }
 
 .resTitle{
-    color: rgb(9, 120, 255);
+    color: rgb(93, 93, 93);
     margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 0px 20px;
 }
 
 .rItem{
@@ -133,4 +137,12 @@
 .loadingReserv{
     color: #0071c2;
     
+}
+
+.reserveLoadin>span{
+    background-color: #ffffff;
+}
+
+.erroReserve{
+    color: #ffffff !important;
 }

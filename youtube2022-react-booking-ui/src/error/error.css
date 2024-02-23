@@ -4,6 +4,15 @@
     align-items: center;
     width: 100%;
     margin: 44px 0px;
+    color: gray;
+}
+.white{
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 44px 0px;
 }
 
 .WrapperErr{
@@ -12,7 +21,6 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    color: gray;
 }
 
 .emojiErr{

@@ -6,7 +6,7 @@ const Error = ({ type , message}) => {
 
     const FetchData = () => {
         return (
-            <div className='containerErr'>
+            <div className={type === "white" ? 'white' : "containerErr"}>
                 <div className='WrapperErr'>
                     <BsEmojiFrown className='emojiErr'/>
                     <h2>{message}</h2>

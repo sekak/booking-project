@@ -21,6 +21,7 @@ const HomeLoves = () => {
         <div className="homelvWrapper">
           <h1>Discover all the hotels you might like</h1>
           <h2 className="homeType">{type ? <span>Type: <b>{type}</b></span> : <span>Type: <b>All types</b></span>}</h2>
+          {data.length === 0 && <span className="noResult">Oops..There is no current  <b> {type}</b></span>}
           {!error ? (!loading) ?
             <div className="carts">
             {data.map((item) => (

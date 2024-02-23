@@ -5,6 +5,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { SearchContext } from "../../Context/searchContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Error from "../../error/Error";
 
 const Reserve = ({ setOpenModal, id }) => {
   const { data, error, loading } = FetchData(`/hotel/rooms/${id}`);
@@ -39,6 +40,7 @@ const Reserve = ({ setOpenModal, id }) => {
   };
 
   const handleClickReserve = async () => {
+    setOpenModal(false);
     try {
       await Promise.all(
         reserveRoom.map((_id) => {
@@ -61,57 +63,69 @@ const Reserve = ({ setOpenModal, id }) => {
 
   return (
     <div className="reserve">
-     {!error ? (!loading)? <div className="reserveWrapper">
-        <IoIosCloseCircle
-          className="close"
-          onClick={() => setOpenModal(false)}
-        />
-        {data.length > 0  && <h1 className="resTitle">Select your rooms</h1>}
-        {data.map((item) => (
-            <div className="rItem" key={item._id}>
-              <div className="rItemInfo">
-                <div className="rTitle">{item.title}</div>
-                <div className="rDesc">{item.desc}</div>
-                <div className="rMax">
-                  Max people: <b>{item.maxPeople}</b>
-                </div>
-                <div className="rPrice">Price: {item.price}</div>
-                <div className="rRrooms">
-                  <div className="rRoom">
-                    <label>{item.roomNumbers.number}</label>
-                    <input
-                      id="input"
-                      type="checkbox"
-                      disabled={isAvailable(item.roomNumbers)}
-                      value={item._id}
-                      onClick={handleClick}
-                      className={isAvailable(item.roomNumbers) && "disable"}
-                    />
+      {!error ? (
+        !loading ? (
+          <div className="reserveWrapper">
+            <IoIosCloseCircle
+              className="close"
+              onClick={() => setOpenModal(false)}
+            />
+            {data.length > 0 && <h1 className="resTitle">Select rooms</h1>}
+            {data.map((item) => (
+              <div className="rItem" key={item._id}>
+                <div className="rItemInfo">
+                  <div className="rTitle">{item.title}</div>
+                  <div className="rDesc">{item.desc}</div>
+                  <div className="rMax">
+                    Max people: <b>{item.maxPeople}</b>
+                  </div>
+                  <div className="rPrice">Price: {item.price}</div>
+                  <div className="rRrooms">
+                    <div className="rRoom">
+                      <label>{item.roomNumbers.number}</label>
+                      <input
+                        id="input"
+                        type="checkbox"
+                        disabled={isAvailable(item.roomNumbers)}
+                        value={item._id}
+                        onClick={handleClick}
+                        className={isAvailable(item.roomNumbers) && "disable"}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )
-        )}
-        {data.length <= 0 ?
-          (
-            <>
-            <h1 className="rNrooms">Sorry, there are no rooms available at moment!</h1>
-            <Link  to="/HomeLoves"><button className="rNroomsButton">Homes you might like</button></Link>
-            </>
-          ) :
-          (        
-            <button className={`reserveButton ${!blocked && `blockReserveButton`}`}
-            onClick={handleClickReserve}>
+            ))}
+            {data.length <= 0 ? (
+              <>
+                <h1 className="rNrooms">
+                  Sorry, there are no rooms available at moment!
+                </h1>
+                <Link to="/HomeLoves">
+                  <button className="rNroomsButton">
+                    Homes you might like
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <button
+                className={`reserveButton ${!blocked && `blockReserveButton`}`}
+                onClick={handleClickReserve}
+              >
                 Reserve Now
-            </button>
-          )
-        }
-
-      </div>
-        : <h1 className="loadingReserv">Loading...</h1>
-        : "Oops error"
-    }
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="loadingHome reserveLoadin">
+            <span className="cercelHome first"></span>
+            <span className="cercelHome second"></span>
+            <span className="cercelHome third"></span>
+          </div>
+        )
+      ) : (
+        <Error  type="white" message="Not found 404!" />
+      )}
     </div>
   );
 };
