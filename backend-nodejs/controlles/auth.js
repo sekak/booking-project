@@ -36,10 +36,10 @@ export const login = async (req, res) => {
         if (!(await bcrypt.compare(req.body.password, GetUser.password)))
         return res.status(404).json("Password incorrect!")
         const { isAdmin, password, ...otherThings } = GetUser._doc
-        const token = jwt.sign({ id: GetUser._id, isAdmin: GetUser.isAdmin }, process.env.JWTTOKEN);
+        const token = jwt.sign({ id: GetUser._id, isAdmin: GetUser.isAdmin }, process.env.JWT);
         res.cookie("access_token", token, {
             httpOnly: true,
-        }).status(200).json({...otherThings})
+        }).status(200).json({ ...otherThings, token })
     } catch (err) {
         res.status(500).json("Internal Server Error")
     }

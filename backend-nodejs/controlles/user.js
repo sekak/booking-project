@@ -3,7 +3,9 @@ import User from "../models/User.js";
 export const updateUser = async (req,res) => {
     try {
         const updateUser = await User.findByIdAndUpdate(req.params.id, { $set: req.body, $new: true });
-        res.status(200).json(updateUser)
+        const {password, ...otherThings} = updateUser._doc
+        console.log({...otherThings})
+        res.status(200).json({...otherThings})
      } catch (err) {
         res.status(500).json(err)
      }
