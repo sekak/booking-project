@@ -37,8 +37,9 @@ export const login = async (req, res) => {
         return res.status(404).json("Password incorrect!")
         const { isAdmin, password, ...otherThings } = GetUser._doc
         const token = jwt.sign({ id: GetUser._id, isAdmin: GetUser.isAdmin }, process.env.JWT);
+        res.header("Access-Control-Allow-Origin", "https://front-end-zeta-eosin.vercel.app");
         res.cookie("access_token", token, {
-            httpOnly: true,
+            httpOnly: false,
             sameSite: false,
             secure: true
         }).status(200).json({ ...otherThings, token })
