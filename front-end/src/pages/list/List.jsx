@@ -34,7 +34,7 @@ const List = () => {
     ]);
     console.log(parseISO(location?.dates[0]?.startDate))
     const [openDate, setOpenDate] = useState(false);
-    const [options, setOptions] = useState(location.options);
+    const options = location.options
     const [delay, setDelay] = useState(false)
     
     

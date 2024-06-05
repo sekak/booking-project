@@ -12,7 +12,7 @@ const FetchData = (url) => {
       const token = JSON.parse(localStorage.getItem("token"));
       try {
         const res = await axios.get(
-          "http://localhost:8080/api" + url,
+          "https://booking-project-seven.vercel.app/api" + url,
           token && {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -32,7 +32,7 @@ const FetchData = (url) => {
     console.log("in reFetch data", url);
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:8080/api" + url);
+      const res = await axios.get("https://booking-project-seven.vercel.app/api" + url);
       setData(res.data);
     } catch (err) {
       setError(true);

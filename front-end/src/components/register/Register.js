@@ -18,7 +18,7 @@ const Register = () => {
   const handleClick = async (e) => {
     try {
         await axios.post(
-        "http://localhost:8080/api/auth/register",
+        "https://booking-project-seven.vercel.app/api/auth/register",
         credentials
       );
       navigate("/login");

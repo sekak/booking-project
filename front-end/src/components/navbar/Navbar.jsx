@@ -40,7 +40,7 @@ const Navbar = () => {
       await getDownloadURL(storageRef)
       .then((url) => {
         axios.put(
-          `http://localhost:8080/api/users/${user._id}`,
+          `https://booking-project-seven.vercel.app/api/users/${user._id}`,
           {
             img:url,
           },

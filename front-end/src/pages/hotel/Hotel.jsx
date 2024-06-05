@@ -13,7 +13,6 @@ import {
 import { useContext, useState } from "react";
 import FetchData from "../../fetching/FetchData";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SearchContext } from "../../Context/searchContext";
 import { AuthContext } from "../../Context/authContext";
 import Reserve from "../../components/reserve/Reserve";
 import { TbPhotoSquareRounded } from "react-icons/tb";
