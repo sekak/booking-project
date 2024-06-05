@@ -19,8 +19,8 @@ const Login = () => {
     try {
       const res = await axios.post(
         "https://booking-project-seven.vercel.app/api/auth/login",
-        credentials,
-        { withCredentials: true }
+        credentials
+        // { withCredentials: true }
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       const path = localStorage.getItem("path")
