@@ -10,9 +10,13 @@ const FetchData = (url) => {
     const fetchData = async () => {
       setLoading(true);
       const token = JSON.parse(localStorage.getItem("token"));
+      // get cookie from cookie storage
+      console.log(document.cookie);
+
+
       try {
         const res = await axios.get(
-          "https://booking-project-seven.vercel.app/api" + url,
+          "http://localhost:8000/api" + url,
           token && {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -32,7 +36,7 @@ const FetchData = (url) => {
     console.log("in reFetch data", url);
     setLoading(true);
     try {
-      const res = await axios.get("https://booking-project-seven.vercel.app/api" + url);
+      const res = await axios.get("http://localhost:8000/api" + url);
       setData(res.data);
     } catch (err) {
       setError(true);

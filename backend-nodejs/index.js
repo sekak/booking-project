@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: 'https://front-end-zeta-eosin.vercel.app',
+    origin: 'http://localhost:3000',
     credentials: true,
   })
 );
@@ -31,6 +31,6 @@ app.use("/api/auth", Auth);
 app.use("/api/room", Room);
 
 
-app.listen(8080, () => {
-  console.log("server listenning on 8080 port");
+app.listen(8000, () => {
+  console.log("server listenning on 8000 port");
 });

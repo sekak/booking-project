@@ -1,13 +1,12 @@
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./navbar.css";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Context/authContext";
 import axios from "axios";
 import {
   ref,
   uploadBytes,
   getDownloadURL,
-  deleteObject,
 } from "firebase/storage";
 import { storage } from "../../firebase/firebase";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
@@ -40,7 +39,7 @@ const Navbar = () => {
       await getDownloadURL(storageRef)
       .then((url) => {
         axios.put(
-          `https://booking-project-seven.vercel.app/api/users/${user._id}`,
+          `http://localhost:8000/api/users/${user._id}`,
           {
             img:url,
           },
