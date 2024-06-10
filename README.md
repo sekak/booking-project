@@ -40,3 +40,32 @@ A more straightforward iteration of a well-known booking website, booking clone 
       
 # Technologie stack
   React, ExpressJs, Javascript, React-Router-Dom, Firebase, date-fns, CSS, Axios, nodemailer, BcryptJS, Cookie-parser, JWT
+# Funcionalities Associated with the website 
+   - Users can create an account and log in.
+   - Users can add their photo.
+   - Search for lodgings across various countries and types of accommodations.
+   - Users can filter hotels and rooms based on budget and star rating.
+   - Check room availability for specific dates and times.
+# Glimps of website
+1. Landing page.
+
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 22 39 AM" src="https://github.com/sekak/booking-clone/assets/53265264/7a8edaec-2a49-47b4-b047-1c2816745344">
+   
+2. Footer
+
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 22 55 AM" src="https://github.com/sekak/booking-clone/assets/53265264/64e7300e-5c34-43d8-a3bd-ad6da4a12636">
+   
+3. Login & Register
+
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 23 35 AM" src="https://github.com/sekak/booking-clone/assets/53265264/c2f1b535-8536-4901-aed5-43f80cfe6b3a">
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 23 23 AM" src="https://github.com/sekak/booking-clone/assets/53265264/048810bc-eb43-4498-856c-af0b0b98860e">
+
+4. Other pages
+
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 25 25 AM" src="https://github.com/sekak/booking-clone/assets/53265264/2ca48af5-971a-432b-a99b-8c003ef87acb">
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 25 05 AM" src="https://github.com/sekak/booking-clone/assets/53265264/e0d333e8-a821-40d7-921d-a3a51ff6fa24">
+   <img width="2543" alt="Screen Shot 2024-06-10 at 11 24 54 AM" src="https://github.com/sekak/booking-clone/assets/53265264/57801e3f-c0a0-40c9-a527-13cc31ea6ae2">
+
+   
+
+
