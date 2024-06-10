@@ -1,11 +1,11 @@
 # Booking-clone
 ![New Project](https://github.com/sekak/booking-clone/assets/53265264/b820062f-760e-4bac-97c2-d1b6ca92292d)
 
-A more straightforward iteration of a well-known booking website, booking clone is made to let consumers easily reserve a range of services or lodging.This clone attempts to mimic the key features of a booking system, such as making reservations for a hotel room, villa, resorts...</br>
+A more straightforward iteration of a well-known booking website, booking clone is made to let consumers easily reserve a range of services or lodging. This clone attempts to mimic the key features of a booking system, such as making reservations for a hotel room, villa, resorts...</br>
 
 👋 Visit my live website: https://front-end-zeta-eosin.vercel.app/
 
-# Installations
+# Installation
 1. Clone the repository from branch booking-clone: `git clone https://github.com/sekak/booking-clone.git`</br>Or download: https://github.com/sekak/booking-clone/archive/refs/heads/booking-clone.zip
 2. Install dependencies: </br>
    - Backend</br>
@@ -34,19 +34,19 @@ A more straightforward iteration of a well-known booking website, booking clone 
 
      
     - Paste into your `.env` file: Open your `.env` file in the `backend-nodejs` directory of your project, and paste the connection string after `MONGO=`.
-    - your `.env` file should now look something like this:</br>
+    - Your `.env` file should now look something like this:</br>
       ```MONGO=mongodb+srv://<username>:<password>@<cluster-address>/<database-name>```</br>
       ```JWT=example_secrite```
       
-# Technologie stack
+# Technology Stack
   React, ExpressJs, Javascript, React-Router-Dom, Firebase, date-fns, CSS, Axios, nodemailer, BcryptJS, Cookie-parser, JWT
-# Funcionalities Associated with the website 
+# Functionalities Associated With the Website
    - Users can create an account and log in.
    - Users can add their photo.
    - Search for lodgings across various countries and types of accommodations.
    - Users can filter hotels and rooms based on budget and star rating.
    - Check room availability for specific dates and times.
-# Glimps of website
+# Glimpse of the Website
 1. Landing page.
 
    <img width="2543" alt="Screen Shot 2024-06-10 at 11 22 39 AM" src="https://github.com/sekak/booking-clone/assets/53265264/7a8edaec-2a49-47b4-b047-1c2816745344">
